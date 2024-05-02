@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #e9ecef;
+            padding: 40px;
+            text-align: center;
+        }
+
+        #calculator-container {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            flex-direction: column; 
+        }
+
+        #calculator {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 1.5em; 
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="calculator-container">
+        <div id="calculator">
+            <h1>Simple Calculator</h1>
+            
+            <label for="num1">Enter Value of X:</label>
+            <input type="number" id="num1">
+            <br><br>
+            <label for="num2">Enter Value of Y:</label>
+            <input type="number" id="num2">
+            <br><br>
+            <button class="btn btn-primary" onclick="add()">Add</button>
+            <button class="btn btn-primary" onclick="subtract()">Subtract</button>
+            <button class="btn btn-primary" onclick="multiply()">Multiply</button>
+            <button class="btn btn-primary" onclick="divide()">Divide</button>
+            <button class="btn btn-primary" onclick="exponent()">Exponent</button>
+            <br><br>
+            <p id="result">Result: </p>
+        </div>
+    </div>
+
+    <script>
+        var resultParagraph = document.getElementById('result');
+
+        // JavaScript Functions
+        function add() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result = num1 + num2;
+            resultParagraph.innerHTML = 'Result: ' + result;
+        }
+
+        function subtract() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result = num1 - num2;
+            resultParagraph.innerHTML = 'Result: ' + result;
+        }
+
+        function multiply() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result = num1 * num2;
+            resultParagraph.innerHTML = 'Result: ' + result;
+        }
+
+        function divide() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            if (num2 === 0) {
+                resultParagraph.innerHTML = 'Result: Cannot divide by zero';
+            } else {
+                var result = num1 / num2;
+                resultParagraph.innerHTML = 'Result: ' + result;
+            }
+        }
+
+        function exponent() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result = Math.pow(num1, num2);
+            resultParagraph.innerHTML = 'Result: ' + result;
+        }
+    </script>
+</body>
+</html>
